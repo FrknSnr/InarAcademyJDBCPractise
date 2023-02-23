@@ -1,15 +1,14 @@
-package question2.runners;
+package question3.runners;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/cucumber", "json:target/report.json"},
-        features = "src/test/java/features/Question2.feature",
-        glue = {"question2/stepDefs"},
+        features = "src/test/java/features/Question3.feature",
+        glue = {"question3/stepDefs"},
+        plugin = {"html:target/cucumber","json:target/report.json"},
         tags = "@db"
 )
 public class Runner {
-
 }

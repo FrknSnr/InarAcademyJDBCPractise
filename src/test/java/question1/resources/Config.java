@@ -1,4 +1,4 @@
-package question1.utils;
+package question1.resources;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package question1.stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import question1.utils.DBUtils;
+import question1.resources.DBUtils;
 
 import static org.junit.Assert.*;
 

@@ -6,7 +6,7 @@ import io.cucumber.java.Before;
 //import org.openqa.selenium.OutputType;
 //import org.openqa.selenium.TakesScreenshot;
 
-import question1.utils.DBUtils;
+import question1.resources.DBUtils;
 //import question1.utils.Driver;
 
 
