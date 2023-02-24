@@ -1,4 +1,4 @@
-package question3.resources;
+package question4.resources;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Utils {
-    private static Connection connection;
-    private static ResultSet resultSet;
-    private static Statement statement;
 
-    public static void createConnection() throws IOException, SQLException {
+    private static Connection connection;
+    private static Statement statement;
+    public static ResultSet resultSet;
+
+    public static void setConnection() throws IOException, SQLException {
         connection = DriverManager.getConnection(
                 Config.getProperty("dbURL"),
                 Config.getProperty("username"),
@@ -24,22 +25,22 @@ public class Utils {
         resultSet = statement.executeQuery(query);
     }
 
-    public static List<Map<String, Object>> getResultListMap(String query) throws SQLException {
+    public static List<Map<String, Object>> resultMap(String query) throws SQLException {
         executeQuery(query);
-        List<Map<String, Object>> listMap = new ArrayList<>();
         ResultSetMetaData rsmd = resultSet.getMetaData();
+        List<Map<String, Object>> listMap = new ArrayList<>();
+
         while (resultSet.next()) {
-            Map<String, Object> rowMap = new HashMap<>();
-            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                rowMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
+            Map<String, Object> map = new HashMap<>();
+            for (int i = 1; i < rsmd.getColumnCount(); i++) {
+                map.put(rsmd.getColumnName(i), resultSet.getObject(i));
             }
-            listMap.add(rowMap);
+            listMap.add(map);
         }
         return listMap;
     }
-
     public static void destroy() throws SQLException {
-        if (resultSet != null) {
+        if (resultSet != null){
             resultSet.close();
         }
         if (statement != null){
