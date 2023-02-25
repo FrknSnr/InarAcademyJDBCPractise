@@ -28,11 +28,11 @@ public class StepDefs {
                 ")\n" +
                 "ORDER BY f.film_id";
 
-        List<Map<String, Object>> resultMap = Utils.resultMap(query);
-        String expectedTitle = resultMap.get(count).get("title").toString();
-        String expectedId = resultMap.get(count).get("film_id").toString();
+        List<Map<String, Object>> result = Utils.resultMap(query);
+        String expectedTitle = result.get(count).get("title").toString();
+        String expectedId = result.get(count).get("film_id").toString();
 
-        System.out.println(expectedTitle + " " + expectedId);
+        System.out.println(expectedTitle + "   ------------   " + expectedId);
 
         assertEquals(expectedTitle.trim(), title);
         assertEquals(expectedId.trim(), film_id);

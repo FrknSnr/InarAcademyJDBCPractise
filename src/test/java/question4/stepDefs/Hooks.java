@@ -1,14 +1,11 @@
 package question4.stepDefs;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import question4.resources.Utils;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class Hooks {
-
 
     @Before
     public void set() {
